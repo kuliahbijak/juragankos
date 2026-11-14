@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>JuraganKos — Kos Nyaman & Modern, Ketersediaan Kamar Real-Time</title>
+  <meta name="description" content="Cek kamar kos kosong secara real-time, lihat tipe kamar, harga harian/bulanan/tahunan, fasilitas, dan lokasi. Tanya & booking langsung via WhatsApp.">
+  <meta name="theme-color" content="#111111">
+  <meta property="og:title" content="JuraganKos — Kos Nyaman & Modern">
+  <meta property="og:description" content="Ketersediaan kamar real-time, fasilitas lengkap, bayar mudah, e-kuitansi otomatis.">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="assets/icons/favicon-64.png">
+  <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
+  <link rel="manifest" href="manifest.json">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://script.google.com"><link rel="preconnect" href="https://script.googleusercontent.com">
+  <link rel="stylesheet" href="css/style.css?v=1.0.0">
+  <link rel="stylesheet" href="css/landing.css?v=1.0.0">
+</head>
+<body>
+<div class="lp">
+  <!-- NAVBAR -->
+  <header class="lp-nav">
+    <a class="brand" href="#beranda" aria-label="JuraganKos OS beranda">
+      <img src="assets/icons/logo.svg" alt="">
+      <span><b>JuraganKos<em>.OS</em></b><small data-bind="usaha-kecil">RESIDENCE &amp; CO-LIVING</small></span>
+    </a>
+    <nav class="lp-links" aria-label="Navigasi">
+      <a href="#beranda">Beranda</a><a href="#ketersediaan">Ketersediaan Kamar</a><a href="#tipe">Tipe &amp; Tarif</a><a href="#fasilitas">Fasilitas</a><a href="#lokasi">Lokasi</a>
+    </nav>
+    <div class="lp-cta">
+      <a class="btn ghost sm" href="app.html" data-warm="app">Portal Penghuni</a>
+      <a class="btn lime sm" href="#" data-wa="umum" data-tipe="">💬 Tanya Kamar</a>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="lp-hero" id="beranda">
+    <div>
+      <span class="badge violet"><span class="dot"></span> Update real-time JuraganKos OS</span>
+      <h1 id="hero-judul">Kos Nyaman &amp; Modern,<br><mark>Tinggal Masuk.</mark></h1>
+      <p class="lead" id="hero-desk">Sistem sewa transparan, fasilitas lengkap, bayar mudah otomatis, dan ketersediaan kamar real-time.</p>
+      <div class="acts">
+        <a class="btn" href="#ketersediaan">Cek Ketersediaan Kamar ⚡</a>
+        <a class="btn ghost" href="#" data-wa="umum" data-tipe="">Tanya Admin WhatsApp</a>
+      </div>
+      <div class="ticks">
+        <span><svg class="ic sm" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Tanpa biaya admin</span>
+        <span><svg class="ic sm" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>E-kuitansi otomatis</span>
+        <span><svg class="ic sm" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Pengingat tagihan via WhatsApp</span>
+      </div>
+    </div>
+    <div class="mock" aria-hidden="true">
+      <div class="bar"><i></i><i></i><i></i><span class="badge">Status: <b>Aktif</b></span></div>
+      <div class="scr">
+        <div class="tile3d lime"><img src="assets/3d/house.webp" alt=""></div>
+        <div class="h-sm" id="mock-nama">JuraganKos Residence</div>
+        <div class="small muted" id="mock-kota">Kos eksklusif dekat kampus</div>
+        <div class="mini">
+          <div><div class="lbl">Okupansi</div><div class="num" id="mock-okup">—</div></div>
+          <div><div class="lbl">Total kamar</div><div class="num" id="mock-total">—</div></div>
+        </div>
+      </div>
+      <div class="float"><img src="assets/3d/key.webp" alt=""><div><b id="mock-kosong">… kamar kosong hari ini!</b><div class="xs">Siap huni, survei langsung atau via video call.</div></div></div>
+    </div>
+  </section>
+
+  <!-- KETERSEDIAAN -->
+  <section class="lp-sec alt" id="ketersediaan">
+    <div class="row between wrap sec-h">
+      <div><span class="badge lime">● Sinkron otomatis</span><h2 class="h-lg mt-s">Ketersediaan Kamar Real-Time</h2><p>Data diperbarui otomatis setiap ada perubahan status kamar.</p></div>
+      <span class="updated" id="updated">Memuat data…</span>
+    </div>
+    <div class="avail">
+      <div class="card tint-lime"><div class="top"><span class="badge">Siap huni</span><img src="assets/3d/key.webp" alt=""></div><div class="big num" id="av-kosong">–</div><b>Kamar kosong</b><div class="chips" id="av-kosong-list"></div></div>
+      <div class="card tint-violet"><div class="top"><span class="badge">Terisi</span><img src="assets/3d/bed.webp" alt=""></div><div class="big num" id="av-terisi">–</div><b id="av-okup-t">Terhuni</b><div class="prog violet mt-s"><i id="av-okup" style="width:0"></i></div></div>
+      <div class="card tint-orange"><div class="top"><span class="badge">Perawatan</span><img src="assets/3d/tools.webp" alt=""></div><div class="big num" id="av-renov">–</div><b>Dalam perbaikan</b><p class="small">Kamar sedang dirapikan agar selalu nyaman saat Anda masuk.</p></div>
+    </div>
+  </section>
+
+  <!-- TIPE KAMAR -->
+  <section class="lp-sec" id="tipe">
+    <div class="sec-h center"><h2 class="h-lg">Etalase Tipe Kamar</h2><p>Pilih ukuran kamar sesuai kebutuhan tidur, belajar, dan bekerja.</p></div>
+    <div class="harga-toggle">
+      <div class="seg" role="group" aria-label="Skema harga" id="seg-harga">
+        <button type="button" data-skema="harian">Harian</button><button type="button" data-skema="bulanan" class="on" aria-pressed="true">Bulanan</button><button type="button" data-skema="tahunan">Tahunan</button>
+      </div>
+      <div class="seg" role="group" aria-label="Filter kelas" id="seg-kelas"><button type="button" class="on" aria-pressed="true" data-kelas="">Semua tipe</button></div>
+    </div>
+    <div class="tipe-grid" id="tipe-grid">
+      <div class="tipe"><div class="slider sk"></div><div class="body"><div class="sk" style="height:22px;width:60%"></div><div class="sk" style="height:48px"></div><div class="sk" style="height:80px"></div></div></div>
+      <div class="tipe"><div class="slider sk"></div><div class="body"><div class="sk" style="height:22px;width:60%"></div><div class="sk" style="height:48px"></div><div class="sk" style="height:80px"></div></div></div>
+      <div class="tipe"><div class="slider sk"></div><div class="body"><div class="sk" style="height:22px;width:60%"></div><div class="sk" style="height:48px"></div><div class="sk" style="height:80px"></div></div></div>
+    </div>
+  </section>
+
+  <!-- FASILITAS -->
+  <section class="lp-sec alt" id="fasilitas">
+    <div class="sec-h"><span class="badge yellow">Fasilitas bersama &amp; keamanan</span><h2 class="h-lg mt-s">Kenyamanan Hotel, Kehangatan Kos Pribadi</h2></div>
+    <div class="feat-grid" id="feat-grid"></div>
+  </section>
+
+  <!-- KEUNGGULAN -->
+  <section class="lp-sec" id="keunggulan">
+    <div class="sec-h center"><span class="badge violet">Dikelola dengan JuraganKos OS</span><h2 class="h-lg mt-s">Kelola Hunian Tanpa Drama</h2><p>Bukti bayar jelas, pencatatan rapi, dan respons komplain cepat.</p></div>
+    <div class="why">
+      <div class="card"><div class="tile3d lime"><img src="assets/3d/receipt.webp" alt=""></div><h3 class="h-sm">E-Kuitansi &amp; QR Otomatis</h3><p class="small muted mt-s">Setelah pembayaran divalidasi, kuitansi PDF ber-QR langsung dikirim dan bisa diverifikasi keasliannya.</p></div>
+      <div class="card"><div class="tile3d violet"><img src="assets/3d/bolt.webp" alt=""></div><h3 class="h-sm">Transparan Tanpa Markup</h3><p class="small muted mt-s">Tagihan listrik dihitung dari meteran per kamar dan tarif yang jelas — tidak ada biaya tersembunyi.</p></div>
+      <div class="card"><div class="tile3d orange"><img src="assets/3d/wrench.webp" alt=""></div><h3 class="h-sm">Komplain Terlacak</h3><p class="small muted mt-s">Lapor kerusakan dari HP lengkap dengan foto, pantau statusnya sampai selesai ditangani.</p></div>
+    </div>
+  </section>
+
+  <!-- LOKASI -->
+  <section class="lp-sec alt" id="lokasi">
+    <div class="lokasi">
+      <div>
+        <span class="badge orange">Lokasi strategis</span>
+        <h2 class="h-lg mt-s" id="lok-judul">Dekat Kampus, Kuliner &amp; Fasilitas 24 Jam</h2>
+        <p class="muted mt-s" id="lok-desk">Lingkungan aman dan nyaman, akses mudah ke transportasi umum.</p>
+        <div class="info-list">
+          <div class="it"><div class="tile3d violet"><img src="assets/3d/pin.webp" alt=""></div><div><b>Alamat</b><div class="small muted" id="lok-alamat">—</div></div></div>
+          <div class="it"><div class="tile3d lime"><img src="assets/3d/calendar.webp" alt=""></div><div><b>Jam layanan admin</b><div class="small muted" id="lok-jam">—</div></div></div>
+        </div>
+        <a class="btn" id="lok-maps" href="#" target="_blank" rel="noopener">Buka di Google Maps ↗</a>
+      </div>
+      <div class="map"><span class="pinlbl" id="map-lbl">📍 JuraganKos</span><iframe id="map" title="Peta lokasi" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+    </div>
+  </section>
+
+  <!-- CTA SURVEI -->
+  <section class="band">
+    <span class="badge dark">Siap menghuni?</span>
+    <h2>Ingin Jadwalkan Survei Langsung ke Lokasi Hari Ini?</h2>
+    <p>Hubungi pengelola untuk survei atau video call. Kami bantu pilihkan kamar terbaik.</p>
+    <div class="row wrap" style="justify-content:center;margin-top:20px">
+      <a class="btn" href="#" data-wa="survei" data-tipe="">Jadwalkan Survei via WhatsApp 💬</a>
+      <button class="btn ghost" type="button" id="btn-prospek">Minta Dihubungi Admin</button>
+    </div>
+  </section>
+
+  <section class="lp-sec">
+    <div class="portal-cta">
+      <div class="row"><img src="assets/3d/phone.webp" alt="" class="i3d" style="width:56px;height:56px"><div><span class="badge lime">Penghuni aktif</span><h3 class="h-md mt-s">Sudah Menjadi Penghuni?</h3><p class="small muted">Lihat tagihan, unggah bukti bayar, unduh kuitansi, dan lapor komplain dari HP.</p></div></div>
+      <a class="btn violet" href="app.html" data-warm="app">Masuk Portal Penghuni →</a>
+    </div>
+  </section>
+
+  <footer class="lp-foot">
+    <div class="cols">
+      <div>
+        <a class="brand" href="#beranda" style="color:#fff"><img src="assets/icons/logo.svg" alt=""><b>JuraganKos<em>.OS</em></b></a>
+        <p class="small" style="color:#bdbccb;margin-top:12px;max-width:360px" id="foot-desk">Manajemen kos &amp; kontrakan modern: ketersediaan real-time, tagihan otomatis, dan layanan penghuni yang transparan.</p>
+        <span class="live"><i></i> Sistem operasional aktif</span>
+      </div>
+      <div><span class="lbl">Navigasi cepat</span><a href="#ketersediaan">Ketersediaan kamar</a><a href="#tipe">Tipe kamar &amp; tarif</a><a href="#lokasi">Lokasi &amp; navigasi</a><a href="app.html">Portal login</a></div>
+      <div><span class="lbl">Kontak admin</span><a href="#" data-wa="umum" data-tipe="" id="foot-wa">WhatsApp</a><a href="#lokasi" id="foot-jam">Jam operasional</a><a href="#lokasi" id="foot-alamat">Alamat</a></div>
+    </div>
+    <div class="copy"><span>© <span id="thn"></span> <span data-bind="usaha">JuraganKos</span>. Seluruh hak dilindungi.</span><span>Ditenagai Google Workspace &amp; Apps Script</span></div>
+  </footer>
+</div>
+<a class="btn lime wa-fab" href="#" data-wa="umum" data-tipe="" aria-label="Chat WhatsApp admin">💬 Tanya</a>
+
+<script src="js/config.js?v=1.0.0"></script>
+<script src="js/core.js?v=1.0.0"></script>
+<script src="js/landing.js?v=1.0.0"></script>
+</body>
+</html>

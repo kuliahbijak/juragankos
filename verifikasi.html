@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Verifikasi E-Kuitansi — JuraganKos OS</title>
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#111111">
+  <link rel="icon" href="assets/icons/favicon-64.png">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css?v=1.0.0">
+  <style>
+    body { display: grid; place-items: center; min-height: 100dvh; padding: 18px; }
+    .vk { width: min(520px, 100%); background: #fff; border: 2px solid #111; border-radius: 30px; box-shadow: 8px 8px 0 #111; padding: 30px 26px; text-align: center; }
+    .vk .ill { width: 110px; height: 100px; margin: 0 auto 14px; border: 2.5px solid #111; border-radius: 22px; display: grid; place-items: center; box-shadow: var(--sh); transform: rotate(-3deg); }
+    .vk .ill img { width: 66px; }
+    .vk dl { display: grid; grid-template-columns: auto 1fr; gap: 10px 16px; text-align: left; margin: 20px 0 0; padding: 16px; border: 2px solid #111; border-radius: 18px; background: #FBFAFF; }
+    .vk dt { color: var(--muted); font-size: 13px; } .vk dd { margin: 0; font-weight: 800; text-align: right; }
+  </style>
+</head>
+<body>
+  <main class="vk" id="vk" aria-live="polite">
+    <div class="ill tint-violet"><img src="assets/3d/receipt.webp" alt=""></div>
+    <h1 class="h-lg">Verifikasi E-Kuitansi</h1>
+    <p class="muted mt-s">Memeriksa keaslian kuitansi…</p>
+    <div class="sk mt" style="height:150px"></div>
+  </main>
+  <script src="js/config.js?v=1.0.0"></script>
+  <script src="js/core.js?v=1.0.0"></script>
+  <script>
+    (async function () {
+      const { esc, rp, tgl, API } = JK, q = new URLSearchParams(location.search), el = document.getElementById('vk');
+      const tampil = (ok, isi) => { el.innerHTML = '<div class="ill ' + (ok ? 'tint-lime' : 'tint-orange') + '"><img src="assets/3d/' + (ok ? 'check' : 'shield') + '.webp" alt=""></div>' + isi + '<p class="xs muted mt-l">Diverifikasi langsung ke database JuraganKos OS · <a href="index.html">Beranda</a></p>'; };
+      if (!q.get('no') || !q.get('k')) return tampil(false, '<h1 class="h-lg">Tautan tidak lengkap</h1><p class="muted mt-s">Pindai ulang QR pada kuitansi.</p>');
+      const r = await API.get('kuitansi.verify', { no: q.get('no'), k: q.get('k') });
+      if (!r.success) return tampil(false, '<h1 class="h-lg">Gagal memeriksa</h1><p class="muted mt-s">' + esc(r.message) + '</p>');
+      const d = r.data;
+      if (!d.valid) return tampil(false, '<span class="badge bad">Tidak valid</span><h1 class="h-lg mt">Kuitansi tidak dikenali</h1><p class="muted mt-s">' + esc(d.pesan) + '</p>');
+      tampil(true, '<span class="badge ok">✓ Asli & tercatat</span><h1 class="h-lg mt">' + esc(d.usaha) + '</h1><p class="muted">E-kuitansi ini sah dan sesuai catatan pembayaran.</p>' +
+        '<dl><dt>No. kuitansi</dt><dd class="num">' + esc(d.no) + '</dd><dt>Diterima dari</dt><dd>' + esc(d.nama) + '</dd><dt>Kamar</dt><dd>' + esc(d.kamar) + '</dd>' +
+        '<dt>Pembayaran</dt><dd>' + esc(d.jenis + ' ' + d.periode) + '</dd><dt>Tanggal</dt><dd>' + esc(tgl(d.tanggal)) + '</dd><dt>Jumlah</dt><dd class="num" style="font-size:20px">' + esc(rp(d.nominal)) + '</dd><dt>Status</dt><dd><span class="badge ok">' + esc(d.status) + '</span></dd></dl>');
+    })();
+  </script>
+</body>
+</html>

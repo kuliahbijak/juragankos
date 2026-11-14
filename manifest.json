@@ -1,0 +1,25 @@
+{
+  "name": "JuraganKos OS — Manajemen Kos & Kontrakan",
+  "short_name": "JuraganKos",
+  "description": "Kamar, penghuni, tagihan, e-kuitansi, komplain, dan laporan kos dalam satu aplikasi.",
+  "id": "./app.html",
+  "start_url": "./app.html?src=pwa",
+  "scope": "./",
+  "display": "standalone",
+  "display_override": ["standalone", "minimal-ui"],
+  "orientation": "any",
+  "background_color": "#EFEBFF",
+  "theme_color": "#111111",
+  "lang": "id",
+  "categories": ["business", "productivity", "finance"],
+  "icons": [
+    { "src": "./assets/icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "./assets/icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "./assets/icons/maskable-192.png", "sizes": "192x192", "type": "image/png", "purpose": "maskable" },
+    { "src": "./assets/icons/maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ],
+  "shortcuts": [
+    { "name": "Tagihan", "url": "./app.html#/tagihan", "icons": [{ "src": "./assets/icons/icon-192.png", "sizes": "192x192" }] },
+    { "name": "Komplain", "url": "./app.html#/komplain", "icons": [{ "src": "./assets/icons/icon-192.png", "sizes": "192x192" }] }
+  ]
+}

@@ -1,0 +1,2 @@
+Ilustrasi 3D: Microsoft Fluent Emoji — https://github.com/microsoft/fluentui-emoji — Lisensi MIT.
+Dikonversi ke WebP 144px untuk kecepatan.
